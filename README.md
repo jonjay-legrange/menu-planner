@@ -1,5 +1,7 @@
 # MenuPlanner
 
+Project for the Udemy course: ["Angular - The Complete Guide"(https://www.udemy.com/course-dashboard-redirect/?course_id=756150)] 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
 
 ## Development server
