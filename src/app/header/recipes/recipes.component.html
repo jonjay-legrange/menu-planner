@@ -1,8 +1,13 @@
 <div class="row">
-  <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
+  <div class="col-xs-12 mt-3 mb-3">
+    <button class="btn btn-primary">
+      New Recipe
+    </button>
   </div>
-  <div class="col-md-7">
-    <app-recipe-detail></app-recipe-detail>
+  <div class="col-md-4">
+    <app-recipe-list (displayedRecipe)="setDisplayedRecipe($event)"></app-recipe-list>
+  </div>
+  <div class="col-md-6 offset-1" *ngIf="displayedRecipe">
+    <app-recipe-detail [recipe]="displayedRecipe"></app-recipe-detail>
   </div>
 </div>

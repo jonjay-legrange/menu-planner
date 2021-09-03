@@ -1,26 +1,9 @@
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-primary">
-      New Recipe
-    </button>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
-    <a href="#" class="list-group-item list-group-item-light clearfix" *ngFor="let recipe of recipes; let i = index;">
-      <div class="float-start">
-        <h4>
-          {{recipes[i].name}}
-        </h4>
-        <p>
-          {{recipes[i].description}}
-        </p>
-      </div>
-      <span class="float-end">
-          <img src="{{recipes[i].imagePath}}" alt="{{recipes[i].name}} picture" class="" style="max-height: 100px"/>
-        </span>
-    </a>
-<!--    <app-recipe-item></app-recipe-item>-->
-  </div>
+  <ul class="list-group">
+      <app-recipe-item *ngFor="let recipeEl of recipes"
+                       [recipe]="recipeEl"
+                       (click)="showRecipeDetail(recipeEl)"
+                       class="list-group-item clearfix">
+      </app-recipe-item>
+  </ul>
 </div>
