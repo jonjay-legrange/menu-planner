@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (isShopping)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping></app-shopping>
+      <app-recipes *ngIf="!isShopping"></app-recipes>
+      <app-shopping *ngIf="isShopping"></app-shopping>
     </div>
   </div>
 </div>
