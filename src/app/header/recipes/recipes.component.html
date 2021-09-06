@@ -7,7 +7,10 @@
   <div class="col-md-4">
     <app-recipe-list (displayedRecipe)="setDisplayedRecipe($event)"></app-recipe-list>
   </div>
-  <div class="col-md-6 offset-1" *ngIf="displayedRecipe">
-    <app-recipe-detail [recipe]="displayedRecipe"></app-recipe-detail>
+  <div class="col-md-6 offset-1">
+    <app-recipe-detail *ngIf="displayedRecipe; else infoText" [recipe]="displayedRecipe"></app-recipe-detail>
+    <ng-template #infoText>
+      <h5>Please select a recipe!</h5>
+    </ng-template>
   </div>
 </div>
