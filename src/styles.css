@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+li.nav-item.show ul {
+  display: block;
+  min-width: 8rem;
+}
