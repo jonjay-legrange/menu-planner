@@ -4,14 +4,14 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ShoppingComponent } from './header/shopping/shopping.component';
-import { ShoppingListComponent } from './header/shopping/shopping-list/shopping-list.component';
-import { ShoppingListEditComponent } from './header/shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { RecipesComponent } from './header/recipes/recipes.component';
-import { RecipeItemComponent } from './header/recipes/recipe-item/recipe-item.component';
-import { RecipeDetailComponent } from './header/recipes/recipe-detail/recipe-detail.component';
-import { RecipeListComponent } from "./header/recipes/recipe-list/recipe-list.component";
+import { HeaderComponent } from './components/header.component';
+import { ShoppingComponent } from './components/shopping/shopping.component';
+import { ShoppingListComponent } from './components/shopping/shopping-list/shopping-list.component';
+import { ShoppingListEditComponent } from './components/shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipeItemComponent } from './components/recipes/recipe-item/recipe-item.component';
+import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeListComponent } from "./components/recipes/recipe-list/recipe-list.component";
 import { DropdownDirective } from './shared/dropdown.directive';
 import { MobileMenuDirective } from './shared/mobile-menu.directive';
 
