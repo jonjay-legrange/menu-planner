@@ -2,7 +2,6 @@
   <ul class="list-group">
       <app-recipe-item *ngFor="let recipeEl of recipes"
                        [recipe]="recipeEl"
-                       (click)="showRecipeDetail(recipeEl)"
                        class="list-group-item clearfix">
       </app-recipe-item>
   </ul>
