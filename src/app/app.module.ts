@@ -13,7 +13,7 @@ import { RecipeItemComponent } from './components/recipes/recipe-item/recipe-ite
 import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe-detail.component';
 import { RecipeListComponent } from "./components/recipes/recipe-list/recipe-list.component";
 import { DropdownDirective } from './shared/dropdown.directive';
-import { MobileMenuDirective } from './shared/mobile-menu.directive';
+import { NextElementDropdownDirective } from './shared/next-element-dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { MobileMenuDirective } from './shared/mobile-menu.directive';
     RecipeItemComponent,
     RecipeDetailComponent,
     DropdownDirective,
-    MobileMenuDirective
+    NextElementDropdownDirective
   ],
   imports: [
     BrowserModule,

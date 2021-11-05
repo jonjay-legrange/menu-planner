@@ -1,5 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from '../classes/recipe.model';
+import { Ingredient } from '../classes/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +9,28 @@ import { Recipe } from '../classes/recipe.model';
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
+  constructor(private shoppingListService: ShoppingListService) {}
+
   private _recipes: Recipe[] = [
     new Recipe(
-      'Goulash', 'Meaty soup', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Gulyas080.jpg'
+      'Rogan Josh',
+      'Spicy curry',
+      'https://upload.wikimedia.org/wikipedia/commons/a/a8/Rogan_josh02.jpg',
+      [
+        new Ingredient('Lamb', 1),
+        new Ingredient('Spices', 5)
+      ]
     ),
     new Recipe(
-      'Gazpacho', 'Summer soup', 'https://upload.wikimedia.org/wikipedia/commons/3/35/Gazpacho_con_su_guarnici%C3%B3n_-_jlastras.jpg'
+      'Sushi',
+      'Assorted',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/1280px-Sushi_platter.jpg',
+      [
+        new Ingredient('Salmon', 4),
+        new Ingredient('Tuna', 4),
+        new Ingredient('Seaweed', 1),
+        new Ingredient('Rice', 10)
+      ]
     )
   ];
 
@@ -22,5 +40,9 @@ export class RecipeService {
 
   set recipes(recipe: Recipe[]) {
     this._recipes = recipe;
+  }
+
+  addIngredientsToShoppingList(recipe: Recipe) {
+    this.shoppingListService.addIngredients(recipe.ingredients);
   }
 }

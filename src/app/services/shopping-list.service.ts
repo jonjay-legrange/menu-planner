@@ -12,12 +12,17 @@ export class ShoppingListService {
     return this._shoppingList.slice();
   }
 
-  addIngredient(ingredient :Ingredient) {
+  addIngredient(ingredient: Ingredient) {
     this._shoppingList.push(ingredient);
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this._shoppingList.push(...ingredients);
   }
 
   set shoppingList(shoppingList: Ingredient[]) {
     this._shoppingList = shoppingList;
+    this.emitChange();
   }
 
   emitChange() {

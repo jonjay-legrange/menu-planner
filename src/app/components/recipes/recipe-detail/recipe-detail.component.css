@@ -1,3 +1,15 @@
 img {
-  max-height: 200px;
+  max-height: 300px;
+}
+
+div.show>ul.dropdown-menu {
+  display: block;
+}
+
+div.show>li.nav-item.dropdown {
+  display: block;
+}
+
+ul.dropdown-menu.show {
+  top: 38px;
 }
