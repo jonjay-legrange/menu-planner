@@ -2,7 +2,9 @@
   <ul class="list-group">
       <app-recipe-item *ngFor="let recipeEl of recipes"
                        [recipe]="recipeEl"
-                       class="list-group-item clearfix">
+                       class="list-group-item clearfix"
+                       routerLinkActive="active"
+                       [routerLink]="[recipeEl.id]">
       </app-recipe-item>
   </ul>
 </div>

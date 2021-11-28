@@ -13,6 +13,7 @@ export class RecipeService {
 
   private _recipes: Recipe[] = [
     new Recipe(
+      0,
       'Rogan Josh',
       'Spicy curry',
       'https://upload.wikimedia.org/wikipedia/commons/a/a8/Rogan_josh02.jpg',
@@ -22,6 +23,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      1,
       'Sushi',
       'Assorted',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/1280px-Sushi_platter.jpg',
@@ -44,5 +46,9 @@ export class RecipeService {
 
   addIngredientsToShoppingList(recipe: Recipe) {
     this.shoppingListService.addIngredients(recipe.ingredients);
+  }
+
+  getRecipe(id: number) {
+    return this._recipes[id];
   }
 }

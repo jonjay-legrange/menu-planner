@@ -8,3 +8,11 @@ li.nav-item.show ul {
 .pointer:hover {
   cursor: pointer;
 }
+
+a.nav-link.active {
+  font-weight: bold;
+}
+
+.list-group-item.active>a.link-primary {
+  color: white;
+}
