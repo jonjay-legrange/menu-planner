@@ -22,11 +22,11 @@ export class ShoppingListEditComponent implements OnInit {
       )
     );
 
-    this.shoppingListService.emitChange();
+    this.shoppingListService.onChange();
   }
 
   onClear() {
     this.shoppingListService.shoppingList = [];
-    this.shoppingListService.emitChange();
+    this.shoppingListService.onChange();
   }
 }

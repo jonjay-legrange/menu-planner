@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'menu-planner';
-  public isShopping: boolean;
-
-  onNavigate(isShopping) {
-    this.isShopping = isShopping;
-  }
 }
