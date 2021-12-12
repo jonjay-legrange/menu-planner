@@ -1,12 +1,23 @@
 <div class="row">
-  <div class="col-xs-10">
-    <hr>
+  <div class="col-xs-10 col-sm-8 mt-3">
     <ul class="list-group">
-      <a class="list-group-item"
-         style="cursor: pointer"
-         *ngFor="let item of shoppingList">
-        {{ item.name }} ({{ item.amount }})
+      <a class="list-group-item pointer"
+         *ngFor="let ingredient of shoppingList; let i = index"
+         title="Click ingredient to edit"
+         (click)="editIngredient(ingredient)">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+        <button class="btn btn-danger pull-right" (click)="onRemoveIngredient(i)">
+          Remove
+        </button>
       </a>
     </ul>
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-12 mt-3" *ngIf="shoppingList.length > 0">
+    <button class="btn btn-danger" type="button" (click)="onClearList()">
+      Remove all ingredients
+    </button>
+  </div>
+</div>
+

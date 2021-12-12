@@ -16,3 +16,12 @@ a.nav-link.active {
 .list-group-item.active>a.link-primary {
   color: white;
 }
+
+.pull-right {
+  float: right;
+}
+
+.invalid-input {
+  font-size: 0.875em;
+  color: #dc3545;
+}

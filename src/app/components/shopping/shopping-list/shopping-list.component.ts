@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
-  shoppingList: Ingredient[] = [];
   private shoppingListSubscription: Subscription;
+  shoppingList: Ingredient[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {}
 
@@ -25,5 +25,19 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.shoppingListSubscription.unsubscribe();
+  }
+
+  onRemoveIngredient(index: number): void {
+    this.shoppingListService.shoppingList = this.shoppingListService.shoppingList.filter((ingredient, idx) => idx !== index)
+  }
+
+  onClearList(): void {
+    this.shoppingListService.shoppingList = [];
+    this.shoppingListService.onChange();
+  }
+
+  editIngredient(ingredient: Ingredient): void {
+    this.shoppingListService.ingredientToEdit = ingredient;
+    this.shoppingListService.onEditIngredient();
   }
 }
