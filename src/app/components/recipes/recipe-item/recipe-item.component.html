@@ -7,7 +7,7 @@
       {{recipe.description}}
     </p>
   </div>
-  <span class="float-end">
-    <img src="{{recipe.imagePath}}" alt="{{recipe.name}} picture" style="max-width: 200px"/>
+  <span class="float-end" *ngIf="recipe?.imageUrl">
+    <img src="{{recipe.imageUrl}}" alt="Image not found!" style="max-width: 200px"/>
   </span>
 </a>

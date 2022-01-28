@@ -5,36 +5,36 @@
       (ngSubmit)="onSubmit()" #shoppingListForm="ngForm">
       <div class="row mb-3 g-3">
         <div class="col-sm-5">
-          <label for="ingredientInput" class="form-label">Ingredient</label>
+          <label for="ingredientName" class="form-label">Ingredient</label>
           <input type="text"
                  class="form-control"
-                 id="ingredientInput"
-                 name="ingredientInput"
+                 id="ingredientName"
+                 name="ingredientName"
                  ngModel
-                 #ingredientInput="ngModel"
+                 #ingredientName="ngModel"
                  required>
           <div class="invalid-feedback" *ngIf="this.submitted">
-            <div *ngIf="ingredientInput.errors?.required">
+            <div *ngIf="ingredientName.errors?.required">
               Ingredient is required
             </div>
           </div>
         </div>
         <div class="col-sm-2">
-          <label for="amountInput" class="form-label">Amount</label>
+          <label for="ingredientAmount" class="form-label">Amount</label>
           <input type="number"
                  class="form-control"
-                 id="amountInput"
-                 name="amountInput"
+                 id="ingredientAmount"
+                 name="ingredientAmount"
                  ngModel
-                 #amountInput="ngModel"
+                 #ingredientAmount="ngModel"
                  required
                  pattern="^[1-9]+[0-9]*$">
           <div class="invalid-feedback" *ngIf="this.submitted">
-            <div *ngIf="amountInput.errors?.required">
+            <div *ngIf="ingredientAmount.errors?.required">
               Amount is required
             </div>
           </div>
-          <div class="invalid-input" *ngIf="this.submitted && amountInput.errors?.pattern">
+          <div class="invalid-input" *ngIf="this.submitted && ingredientAmount.errors?.pattern">
             Invalid amount
           </div>
         </div>

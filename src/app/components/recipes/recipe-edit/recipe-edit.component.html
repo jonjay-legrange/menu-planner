@@ -1,1 +1,109 @@
-<p>New recipe: {{newRecipe}}</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeEditForm" [ngClass]="submitted && recipeEditForm.invalid ? 'was-validated' : ''">
+      <div class="form-control">
+        <div formGroupName="recipeDetails">
+          <div>
+            <div class="col-sm-12 mb-3">
+              <label class="form-label" for="name">
+                Name
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                id="name"
+                required
+                formControlName="name">
+              <div class="invalid-feedback" *ngIf="recipeDetails.get('name').invalid">
+                  Please name your recipe
+              </div>
+            </div>
+            <div class="col-sm-12 mb-3">
+              <label class="form-label" for="description">
+                Description
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                id="description"
+                required
+                formControlName="description">
+              <div class="invalid-feedback" *ngIf="recipeDetails.get('description').invalid">
+                Please describe your recipe
+              </div>
+            </div>
+            <div class="col-sm-12 mb-3">
+              <label class="form-label" for="imageUrl">
+                Image URL
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                id="imageUrl"
+                formControlName="imageUrl"
+                #imageUrl>
+            </div>
+            <div class="col-sm-12 mb-3" *ngIf="imageUrl.value">
+              <label class="form-label col-sm-12" for="imagePreview">
+                Image Preview
+              </label>
+              <img id="imagePreview" [src]="imageUrl.value" alt="Image not found!"/>
+            </div>
+          </div>
+        </div>
+        <div formArrayName="ingredients" *ngFor="let ingredient of ingredientsControls; let i = index;">
+          <div formGroupName="{{i}}">
+            <div class="row mb-4 g-3">
+              <div class="col-4">
+                <label for="ingredientName" class="form-label">Ingredient</label>
+                <input type="text"
+                       class="form-control"
+                       id="ingredientName"
+                       name="ingredientName"
+                       formControlName="ingredientName"
+                       required>
+                <div class="invalid-feedback" *ngIf="ingredientsControls[i].get('ingredientName').invalid">
+                  Please enter an ingredient
+                </div>
+              </div>
+              <div class="col-4">
+                <label for="ingredientAmount" class="form-label">Amount</label>
+                <input type="number"
+                       class="form-control"
+                       id="ingredientAmount"
+                       name="ingredientAmount"
+                       formControlName="ingredientAmount"
+                       required
+                       pattern="^[1-9]+[0-9]*$">
+                <div class="invalid-feedback" *ngIf="ingredientsControls[i].get('ingredientAmount').invalid">
+                  Please enter an amount
+                </div>
+              </div>
+              <div class="col-auto" *ngIf="ingredients.length > 1">
+                <label class="form-label col-sm-12">&nbsp;</label>
+                <button class="btn btn-danger" title="Remove ingredient" (click)="onRemoveIngredient(i)">
+                  -
+                </button>
+              </div>
+              <div class="col-auto" *ngIf="i == ingredients.length - 1">
+                <label class="form-label col-sm-12">&nbsp;</label>
+                <button class="btn btn-success" title="Add another ingredient" (click)="onAddNewIngredient()">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-sm-12 mt-4 mb-3">
+          <button class="btn btn-primary me-3" (click)="onSave()">
+            Save recipe
+          </button>
+          <button class="btn btn-warning" (click)="onClear()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,2 @@
-<h5>Please select a recipe!</h5>
+<h5 *ngIf="hasRecipes">Please select a recipe!</h5>
+<h5 *ngIf="!hasRecipes">Please enter a recipe!</h5>

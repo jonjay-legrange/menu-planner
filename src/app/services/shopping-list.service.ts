@@ -36,11 +36,11 @@ export class ShoppingListService {
     this._ingredientToEdit = ingredient;
   }
 
-  onEditIngredient(): void {
+  updateIngredient(): void {
     this.editingIngredient.next(this._ingredientToEdit);
   }
 
-  onSaveChangedIngredient(ingredient: Ingredient): void {
+  updateShoppingList(ingredient: Ingredient): void {
     const saveIndex = this._shoppingList.indexOf(this._ingredientToEdit);
     this._shoppingList[saveIndex] = ingredient;
     this.onChange();

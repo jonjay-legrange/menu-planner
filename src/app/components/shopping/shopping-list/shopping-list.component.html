@@ -4,7 +4,7 @@
       <a class="list-group-item pointer"
          *ngFor="let ingredient of shoppingList; let i = index"
          title="Click ingredient to edit"
-         (click)="editIngredient(ingredient)">
+         (click)="updateIngredient(ingredient)">
         {{ ingredient.name }} ({{ ingredient.amount }})
         <button class="btn btn-danger pull-right" (click)="onRemoveIngredient(i)">
           Remove

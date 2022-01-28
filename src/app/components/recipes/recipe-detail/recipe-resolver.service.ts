@@ -9,7 +9,7 @@ interface Recipe {
   id: number;
   name: string;
   description: string;
-  imagePath: string
+  imageUrl: string
   ingredients: Ingredient[];
 }
 

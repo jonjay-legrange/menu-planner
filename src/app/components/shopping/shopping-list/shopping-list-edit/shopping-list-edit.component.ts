@@ -32,8 +32,8 @@ export class ShoppingListEditComponent implements OnInit {
     this.editingIngredientSubscription = this.shoppingListService.editingIngredient.subscribe(
       (ingredient: Ingredient) => {
         this.shoppingListForm.form.patchValue({
-          ingredientInput: ingredient.name,
-          amountInput: ingredient.amount
+          ingredientName: ingredient.name,
+          ingredientAmount: ingredient.amount
         })
         this.activeIngredient = ingredient;
       }
@@ -43,15 +43,15 @@ export class ShoppingListEditComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.shoppingListForm.valid && this.shoppingListForm.controls.amountInput.value > 0) {
+    if (this.shoppingListForm.valid && this.shoppingListForm.controls.ingredientAmount.value > 0) {
 
       const ingredient = new Ingredient(
-        this.shoppingListForm.controls.ingredientInput.value,
-          this.shoppingListForm.controls.amountInput.value
+        this.shoppingListForm.controls.ingredientName.value,
+          this.shoppingListForm.controls.ingredientAmount.value
       );
 
       if (this.activeIngredient) {
-        this.shoppingListService.onSaveChangedIngredient(ingredient);
+        this.shoppingListService.updateShoppingList(ingredient);
         this.activeIngredient = null;
       } else {
         this.shoppingListService.addIngredient(ingredient);
