@@ -99,7 +99,8 @@ export class RecipeEditComponent implements OnInit {
         ingredients
       );
 
-      if (this.recipe.id) {
+      if (this.recipe?.id) {
+        recipe.id = this.recipe.id;
         this.recipeService.updateRecipe(recipe);
       } else {
         this.recipeService.addNewRecipe(recipe);

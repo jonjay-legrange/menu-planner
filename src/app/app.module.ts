@@ -17,6 +17,7 @@ import { NextElementDropdownDirective } from './shared/next-element-dropdown.dir
 import { RecipeResolverService } from './components/recipes/recipe-detail/recipe-resolver.service';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
   providers: [RecipeResolverService],
   bootstrap: [AppComponent]

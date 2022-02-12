@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DataStorageService } from '../services/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() isShopping = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.isShopping.emit(false);
@@ -16,5 +17,13 @@ export class HeaderComponent implements OnInit {
 
   navigate(isShopping) {
     this.isShopping.emit(isShopping);
+  }
+
+  getRecipes() {
+    this.dataStorageService.getRecipes();
+  }
+
+  saveRecipes() {
+    this.dataStorageService.saveRecipes();
   }
 }
