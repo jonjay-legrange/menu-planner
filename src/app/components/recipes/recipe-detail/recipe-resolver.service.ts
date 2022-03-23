@@ -14,7 +14,7 @@ interface Recipe {
   ingredients: Ingredient[];
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class RecipeResolverService implements Resolve<Recipe> {
   constructor(private recipeService: RecipeService, private dataStorageService: DataStorageService) {}
 
